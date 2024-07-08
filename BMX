@@ -1,0 +1,14 @@
+id_bike,nombre,tipo,tiempo
+51,Falito,BMX,28
+52,Hyacinthia,BMX,15
+54,Gayler,BMX,18
+57,Kania,BMX,28
+60,Sylvan,BMX,22
+75,Blayne,BMX,23
+76,Becki,BMX,25
+77,Zorine,BMX,22
+78,Fern,BMX,27
+88,Spenser,BMX,19
+92,Keri,BMX,28
+98,Sancho,BMX,29
+100,Violet,BMX,16
