@@ -32,7 +32,7 @@ def main ():
                         8) guardar posiciones
                         9)Exit""")
             
-            opcion = input("Ingrese opcion")
+            opcion = input("Ingrese opcion: ")
             while not validar_entero(opcion):
                 opcion= input("Ingrese opcion")
             match (opcion):
@@ -59,7 +59,7 @@ def main ():
                     if not bandera_tiempo:
                         mostrar_mensaje("No se puede mostrar al ganador sin  asignar tiempos primero")
                     else:
-                        calcular_minimo(lista_bicicletas,"tiempo")
+                        lista_ganadores =calcular_minimo(lista_bicicletas,"tiempo")
                         mostrar_nombre_tiempo(lista_ganadores,"nombre","tiempo")
                 case "5":
                     if not bandera_carga:
@@ -70,8 +70,6 @@ def main ():
                             tipo_buscado = input("Ingrese tipo")
                         lista_filtrada_tipo = filtrar_datos(lista_bicicletas,tipo_buscado,"tipo")
                         guardar_csv(lista_filtrada_tipo,f"{tipo_buscado}.csv")
-                    
-                
                 case "6":
                     pass
               
@@ -82,15 +80,13 @@ def main ():
                         ordenar_dos_criterios(lista_bicicletas,"tipo","tiempo")
                         mostrar_bicicletas(lista_bicicletas)
                         bandera_ordenamiento = True
-                
-                
                 case "8":
                     if not bandera_carga:
                         mostrar_mensaje("No se puede guardar este archivo sin cargar el primero")
                     elif not bandera_ordenamiento:
                         mostrar_mensaje("No se puede guardar sin ordenar")
                     else:
-                        guardar_json(lista_bicicletas,"posiciones")
+                        guardar_json(lista_bicicletas,"posiciones.json")
                 
                 case "9":
                     sys.exit()
