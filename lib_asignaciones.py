@@ -1,5 +1,5 @@
 from random import randint
-def asignar_tiempo(i, max=30, min=10):
+def asignar_tiempo(i, max=120, min=100):
     """asigna un valor random
 
     Args:

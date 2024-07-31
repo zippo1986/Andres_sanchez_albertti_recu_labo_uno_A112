@@ -18,6 +18,7 @@ def main ():
     
     lista_bicicletas= []
     lista_ganadores =[]
+    nombre_correcto_archivo = "bicicletas"
     
     confirmacion = "s"
     while confirmacion == "s":
@@ -37,7 +38,16 @@ def main ():
                 opcion= input("Ingrese opcion")
             match (opcion):
                 case "1":
-                    lista_bicicletas= archivo_a_lista("bicicletas.csv")
+                    nombre_archivo = input("Ingrese el nombre del archivo a cargar(Sin extension): ").lower()
+                    while nombre_archivo != nombre_correcto_archivo:
+                        nombre_archivo = input("Ingrese el nombre del archivo a cargar: ").lower()
+                        
+                    lista_bicicletas= archivo_a_lista(f"{nombre_archivo}.csv")
+                    
+                    
+                    mostrar_mensaje("El archivo se ha cargado correctamente")
+                    
+                    
                     
                     bandera_carga = True
                 
@@ -65,13 +75,17 @@ def main ():
                     if not bandera_carga:
                         mostrar_mensaje("No sse puede filtrar sin cargar el archivo")
                     else:
-                        tipo_buscado = input("ingrese tipo buscado")
+                        tipo_buscado = input("ingrese tipo buscado: ").upper()
                         while not validar_tipo(lista_bicicletas,tipo_buscado):
-                            tipo_buscado = input("Ingrese tipo")
+                            mostrar_mensaje("El tipo solicitado no se encuentra ")
+                            tipo_buscado = input("Ingrese tipo buscado: ").lower()
                         lista_filtrada_tipo = filtrar_datos(lista_bicicletas,tipo_buscado,"tipo")
                         guardar_csv(lista_filtrada_tipo,f"{tipo_buscado}.csv")
+                        mostrar_mensaje("El archivo ha sido guardado correctamente")
                 case "6":
-                    pass
+                    lista_promedio_tiempo =sacar_promedio_tipo(lista_bicicletas)
+                    mostrar_nombre_tiempo(lista_promedio_tiempo, "tipo", "promedio_tiempo")
+                    
               
                 case "7":
                     if not bandera_tiempo:

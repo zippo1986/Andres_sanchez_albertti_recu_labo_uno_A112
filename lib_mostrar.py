@@ -7,17 +7,17 @@ def mostrar_bicicletas(lista):
     for pelicula in lista:
         mostrar_bicicleta(pelicula)        
 
-def mostrar_bicicleta(pelicula) -> None:
+def mostrar_bicicleta(bicicleta) -> None:
     """Muestra las peliculas por aatributo
 
     Args:
         pelicula (dict): diccionario de pelicula
     """
     print(
-        f"{pelicula['id_bike']:3}| "
-        f"{pelicula['nombre']:29}| "
-        f"{pelicula['tipo']:15}| "
-        f"{pelicula['tiempo']:6}|"
+        f"{bicicleta['id_bike']:3}| "
+        f"{bicicleta['nombre']:29}| "
+        f"{bicicleta['tipo']:15}| "
+        f"{bicicleta['tiempo']:6}|"
     )
 
 def mostrar_nombre_tiempo(lista,clave_uno,clave_dos):

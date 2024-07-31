@@ -35,3 +35,10 @@ def validar_tipo(lista,tipo):
     for t in lista_tipos:
         if tipo ==t:
             return True
+        
+def normalizar_datos(lista_diccionarios):
+    if lista_diccionarios is not None:
+        for diccionario in lista_diccionarios:
+            if diccionario.get("tipo") is not None:
+                diccionario["tipo"] = diccionario["tipo"].lower()                      
+    
